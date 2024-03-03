@@ -1,13 +1,14 @@
 import { ReactNode } from "react";
 
-type tabButtonProps = {
+type TabButtonProps = {
   children: ReactNode;
+  onSelect: () => void;
 };
 
-const TabButton: React.FC<tabButtonProps> = (props) => {
+const TabButton: React.FC<TabButtonProps> = ({ children, onSelect }) => {
   return (
     <li>
-      <button>{props.children}</button>
+      <button onClick={onSelect}>{children}</button>
     </li>
   );
 };
