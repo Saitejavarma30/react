@@ -4,6 +4,7 @@ import CoreConcept from "../CoreConcept";
 import { CORE_CONCEPTS } from "../../data";
 import Image from "../../assets/react-core-concepts.png";
 import Header from "../Header";
+import TabButton from "../TabButton";
 
 const App: React.FC = () => {
   const text = ["Fundamental", "Core", "Basic"];
@@ -24,12 +25,33 @@ const App: React.FC = () => {
             })}
           </ul>
         </section>
-      </main>
-      <main>
-        <h2>Time to get started!</h2>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton>Components</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>State</TabButton>
+          </menu>
+          <div id="tab-content">
+            <h3></h3>
+            <p></p>
+            <pre>
+              <code></code>
+            </pre>
+          </div>
+        </section>
       </main>
     </>
   );
 };
 
 export default App;
+
+/*
+<RewardsHeader/>
+<RewardsTabs/>
+<RewardsPills/>
+<RewardsList/>
+<RewardsDrawer/>
+*/
