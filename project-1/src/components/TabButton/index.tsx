@@ -3,12 +3,19 @@ import { ReactNode } from "react";
 type TabButtonProps = {
   children: ReactNode;
   onSelect: () => void;
+  selected: boolean;
 };
 
-const TabButton: React.FC<TabButtonProps> = ({ children, onSelect }) => {
+const TabButton: React.FC<TabButtonProps> = ({
+  children,
+  onSelect,
+  selected,
+}) => {
   return (
     <li>
-      <button onClick={onSelect}>{children}</button>
+      <button className={selected ? "active" : ""} onClick={onSelect}>
+        {children}
+      </button>
     </li>
   );
 };

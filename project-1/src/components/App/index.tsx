@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 import "./App.css";
 import CoreConcept from "../CoreConcept";
-import { CORE_CONCEPTS } from "../../data";
+import { CORE_CONCEPTS, EXAMPLES, ExamplesTitleType } from "../../data";
 import Image from "../../assets/react-core-concepts.png";
 import Header from "../Header";
 import TabButton from "../TabButton";
 import ExampleSection from "../ExampleSection";
+import TabContent from "../TabContent";
 
 const App: React.FC = () => {
   const text = ["Fundamental", "Core", "Basic"];
-  const [selectedButton, setSelectedButton] = useState<string>(
-    "Please click some button"
-  );
+  const [selectedButton, setSelectedButton] = useState<string>("components");
 
   const randomElement = (max: number): string => {
     return text[Math.floor(Math.random() * max)];
   };
 
-  const handleClick = (selectButton: string) => {
+  const handleClick = (selectButton: ExamplesTitleType) => {
     setSelectedButton(selectButton);
-    console.log(selectedButton);
   };
 
   return (
@@ -39,6 +37,7 @@ const App: React.FC = () => {
             onSelect={() => {
               handleClick("components");
             }}
+            selected={"components" === selectedButton}
           >
             Components
           </TabButton>
@@ -46,6 +45,7 @@ const App: React.FC = () => {
             onSelect={() => {
               handleClick("jsx");
             }}
+            selected={"jsx" === selectedButton}
           >
             JSX
           </TabButton>
@@ -53,6 +53,7 @@ const App: React.FC = () => {
             onSelect={() => {
               handleClick("props");
             }}
+            selected={"props" === selectedButton}
           >
             Props
           </TabButton>
@@ -60,17 +61,16 @@ const App: React.FC = () => {
             onSelect={() => {
               handleClick("state");
             }}
+            selected={"state" === selectedButton}
           >
             State
           </TabButton>
         </ExampleSection>
-        <div id="tab-content">
-          <h3>{selectedButton}</h3>
-          {/* <p></p>
-          <pre>
-            <code></code>
-          </pre> */}
-        </div>
+        {selectedButton && (
+          <TabContent
+            {...EXAMPLES[selectedButton as ExamplesTitleType]}
+          ></TabContent>
+        )}
       </main>
     </>
   );

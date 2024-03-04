@@ -3,7 +3,28 @@ import propsImg from "./assets/config.png";
 import jsxImg from "./assets/jsx-ui.png";
 import stateImg from "./assets/state-mgmt.png";
 
-export const CORE_CONCEPTS = [
+export type CoreConceptsObject = {
+  image: string;
+  title: string;
+  description: string;
+}[];
+
+export type ExamplesTitleType = "components" | "jsx" | "props" | "state";
+
+export type ExampleType = {
+  title: string;
+  description: string;
+  code: string;
+};
+
+export type Examples = {
+  components: ExampleType;
+  jsx: ExampleType;
+  props: ExampleType;
+  state: ExampleType;
+};
+
+export const CORE_CONCEPTS: CoreConceptsObject = [
   {
     image: componentsImg,
     title: "Components",
