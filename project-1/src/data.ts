@@ -51,7 +51,7 @@ export const CORE_CONCEPTS: CoreConceptsObject = [
   },
 ];
 
-export const EXAMPLES = {
+export const EXAMPLES: Examples = {
   components: {
     title: "Components",
     description:

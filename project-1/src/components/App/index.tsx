@@ -76,19 +76,4 @@ const App: React.FC = () => {
   );
 };
 
-/*
-onClick => onSelect (tabButton)
-onSelect => handleClick (app)
-
-oClick => handleClick
- */
-
 export default App;
-
-/*
-<RewardsHeader/>
-<RewardsTabs/>
-<RewardsPills/>
-<RewardsList/>
-<RewardsDrawer/>
-*/
